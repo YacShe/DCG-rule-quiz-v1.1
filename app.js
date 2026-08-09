@@ -46,6 +46,7 @@ function shuffle(array) {
 
 function showScreen(screen) {
   [startScreen, quizScreen, completeScreen].forEach(s => s.classList.add('hidden'));
+  quizScreen.classList.remove('fade-out');
   screen.classList.remove('hidden');
 }
 
@@ -77,7 +78,7 @@ function loadQuestion(index) {
   }
 
   answersGrid.innerHTML = '';
-  question.answers.forEach(answer => {
+  shuffle(question.answers).forEach(answer => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
     btn.textContent = answer.text;
@@ -132,13 +133,41 @@ retryBtn.addEventListener('click', () => {
   feedbackOverlay.classList.add('hidden');
 });
 
+const FADE_MS = 250;
+const MAX_IMAGE_WAIT_MS = 500;
+
 function goToNextQuestion() {
   currentIndex++;
   if (currentIndex >= quizQuestions.length) {
     showScreen(completeScreen);
   } else {
-    loadQuestion(currentIndex);
+    transitionToQuestion(currentIndex);
   }
+}
+
+// Fades the current question out, swaps in the next one, then fades back in
+// once its image has loaded (or after a timeout, so a slow image can't stall it).
+function transitionToQuestion(index) {
+  quizScreen.classList.add('fade-out');
+  setTimeout(() => {
+    loadQuestion(index);
+    fadeInWhenImageReady();
+  }, FADE_MS);
+}
+
+function fadeInWhenImageReady() {
+  const fadeIn = () => quizScreen.classList.remove('fade-out');
+  if (!quizQuestions[currentIndex].image) {
+    fadeIn();
+    return;
+  }
+  const timer = setTimeout(fadeIn, MAX_IMAGE_WAIT_MS);
+  const done = () => {
+    clearTimeout(timer);
+    fadeIn();
+  };
+  questionImage.addEventListener('load', done, { once: true });
+  questionImage.addEventListener('error', done, { once: true });
 }
 
 function startQuiz() {

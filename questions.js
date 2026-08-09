@@ -79,9 +79,41 @@ const QUESTIONS = [
       { text: "Junomon will attempt to place something into security, but will fail and nothing else will happen.", correct: true, explanation: "If cards can't be added to security stacks, Junomon's effect cost cannot be successfully paid." },
     ],
   },
+  {
+    // Question 6
+    text: "What statement is **not true** regarding battles?",
+    image: "images/question-image-6.png",
+    answers: [
+      { text: "Battle is a game rule where DP is compared between Digimon to determine the winner.", correct: false, explanation: "" },
+      { text: "'Winning a battle' also counts when checking a Digimon card in security and having more DP.", correct: false, explanation: "Battles against security Digimon are battles." },
+      { text: "An unaffected Digimon can be chosen for effects that initiate a battle.", correct: false, explanation: "Battle is a game rule, not an effect, so being unaffected by effects does not prevent it from being chosen." },
+      { text: "A battle is not considered won if the losing Digimon prevents its deletion.", correct: true, explanation: "Winning a battle only refers to the act of comparing DP, what happens afterwards is irrelevant." },
+    ],
+  },
+  {
+    // Question 7
+    text: "Machinedramon attacked Saberdramon and won, deleting Saberdramon. Saberdramon attempts to delete Machinedramon using <Retaliation> and it responds by removing MetalTyrannomon and another card from under it to prevent deletion. Can <Piercing> be activated to check security?",
+    image: "images/question-image-7.png",
+    answers: [
+      { text: "Yes", correct: true, explanation: "Even though MetalTyrannomon is no longer in Machinedramon's digivolution cards, it was there when the battle was won, which caused <Piercing> to trigger, allowing Machinedramon to check security." },
+      { text: "No", correct: false, explanation: "<Piercing> triggers when a Digimon is deleted in battle, with the security checks happening just before the end of the attack. Since Saberdramon was deleted in battle, <Piercing> would still trigger, allowing it to check security." },
+    ],
+  },
+  {
+    // Question 8
+    text: "Player A has a Diaboromon token and attempts to remove Player B's BT24 Venusmon. Venusmon targets the token to be placed into security to protect herself. Which of these statements is true?",
+    image: "images/question-image-8.png",
+    answers: [
+      { text: "Venusmon cannot place a token into security because it's not a Digimon.", correct: false, explanation: "Tokens are played as Digimon and can be targeted by anything that targets Digimon." },
+      { text: "Venusmon can target the token, the token will be removed from the game and Venusmon will not be removed.", correct: true, explanation: "Tokens are removed from play when they leave the battle area, but they still fulfill effect cost conditions such as 'By placing a Digimon into security'." },
+      { text: "Venusmon can target the token, the token will be removed from the game, but Venusmon will still be removed because the token wasn't placed into security.", correct: false, explanation: "Tokens are removed from play when they leave the battle area, but they still fulfill effect cost conditions such as 'By placing a Digimon into security'." },
+      { text: "Venusmon can target the token, the token will be placed into security and Venusmon will not be removed.", correct: false, explanation: "Tokens are removed from play when they leave the battle area,cthey cannot exist in any other area." },
+    ],
+  },
 //   {
-//     // Question 6
+//     // Question x
 //     text: "Question",
+//     image: "images/question-image-x.png",
 //     answers: [
 //       { text: "X", correct: true, explanation: "Y" },
 //       { text: "X", correct: false, explanation: "Y" },
