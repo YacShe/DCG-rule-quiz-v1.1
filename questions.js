@@ -26,7 +26,7 @@
 const QUESTIONS = [
   {
     // Question 1
-    text: "In which of the following cases will **Overflow -4** be applied?",
+    text: "In which of the following cases is **Overflow -4** applied?",
     image: "images/question-image-1.png",
     answers: [
       { text: "A Digimon with an ACE card as the top card being placed under another Digimon/Tamer on the field.", correct: false, explanation: "Moving from/to under another card on the field does not cause Overflow, this is because Overflow states 'the field or under a card' as 2 safe areas." },
@@ -37,7 +37,7 @@ const QUESTIONS = [
   },
   {
     // Question 2
-    text: "Your Digimon was De-digivolved resulting in this stack. What happens next?",
+    text: "Your Digimon is De-digivolved resulting in this stack. What happens next?",
     image: "images/question-image-2.png",
     answers: [
       { text: "The Digimon will be placed in the trash, this doesn't count as deletion or being removed from the battle area.", correct: true, explanation: "According to the rules, Digimon with no DP value are placed in the trash, this **does not** count as leaving the battle area." },
@@ -54,7 +54,7 @@ const QUESTIONS = [
       { text: "A Digimon is placed under another Digimon or Tamer.", correct: false, explanation: "Cards under other cards are not in the battle or breeding areas." },
       { text: "A Digimon is deleted.", correct: false, explanation: "Deleted Digimon are moved from the battle area to the trash." },
       { text: "A Digimon is returned to the hand/deck.", correct: false, explanation: "Returned Digimon are moved from the battle area to the hand or deck." },
-      { text: "A Digimon Digivolves.", correct: true, explanation: "Digivolving doesn't cause the Digimon to leave the battle area." },
+      { text: "A Digimon is De-digivolved.", correct: true, explanation: "De-digivolving doesn't cause the Digimon to leave the battle area." },
     ],
   },
   {
@@ -70,7 +70,7 @@ const QUESTIONS = [
   },
   {
     // Question 5
-    text: "Player A has played Kongou on the previous turn. Player B now digivolves into BT25 Junomon, targeting 1 of player A's Digimon. Which of these statements is true?",
+    text: "Player A has played Kongou on the previous turn. Player B now digivolves into BT25 Junomon, targeting 1 of player A's Digimon. Which is correct?",
     image: "images/question-image-5.png",
     answers: [
       { text: "Junomon can attempt to place a Digimon into security, and will trash both players' top security even though nothing was placed.", correct: false, explanation: "Effects costs, denoted by the word 'By' must be successfully paid in order to activate the effect that follows them." },
@@ -81,18 +81,18 @@ const QUESTIONS = [
   },
   {
     // Question 6
-    text: "What statement is **not true** regarding battles?",
+    text: "Which statement is **not true** regarding battles?",
     image: "images/question-image-6.png",
     answers: [
       { text: "Battle is a game rule where DP is compared between Digimon to determine the winner.", correct: false, explanation: "" },
       { text: "'Winning a battle' also counts when checking a Digimon card in security and having more DP.", correct: false, explanation: "Battles against security Digimon are battles." },
       { text: "An unaffected Digimon can be chosen for effects that initiate a battle.", correct: false, explanation: "Battle is a game rule, not an effect, so being unaffected by effects does not prevent it from being chosen." },
-      { text: "A battle is not considered won if the losing Digimon prevents its deletion.", correct: true, explanation: "Winning a battle only refers to the act of comparing DP, what happens afterwards is irrelevant." },
+      { text: "A battle is not considered won if the losing Digimon prevents its deletion.", correct: true, explanation: "Winning a battle only refers to the act of comparing DP, what happens afterwards doesn't change that." },
     ],
   },
   {
     // Question 7
-    text: "Machinedramon attacked Saberdramon and won, deleting Saberdramon. Saberdramon attempts to delete Machinedramon using <Retaliation> and it responds by removing MetalTyrannomon and another card from under it to prevent deletion. Can <Piercing> be activated to check security?",
+    text: "Machinedramon attacked Saberdramon and won, deleting Saberdramon. Saberdramon attempts to delete Machinedramon using <Retaliation> and it responds by removing MetalTyrannomon and another card from under it to prevent the deletion. Can security be checked using <Piercing>?",
     image: "images/question-image-7.png",
     answers: [
       { text: "Yes", correct: true, explanation: "Even though MetalTyrannomon is no longer in Machinedramon's digivolution cards, it was there when the battle was won, which caused <Piercing> to trigger, allowing Machinedramon to check security." },
@@ -101,13 +101,40 @@ const QUESTIONS = [
   },
   {
     // Question 8
-    text: "Player A has a Diaboromon token and attempts to remove Player B's BT24 Venusmon. Venusmon targets the token to be placed into security to protect herself. Which of these statements is true?",
+    text: "Player A has a Diaboromon token and attempts to remove Player B's BT24 Venusmon. Venusmon targets the token to be placed into security to protect herself. Which is correct?",
     image: "images/question-image-8.png",
     answers: [
       { text: "Venusmon cannot place a token into security because it's not a Digimon.", correct: false, explanation: "Tokens are played as Digimon and can be targeted by anything that targets Digimon." },
       { text: "Venusmon can target the token, the token will be removed from the game and Venusmon will not be removed.", correct: true, explanation: "Tokens are removed from play when they leave the battle area, but they still fulfill effect cost conditions such as 'By placing a Digimon into security'." },
       { text: "Venusmon can target the token, the token will be removed from the game, but Venusmon will still be removed because the token wasn't placed into security.", correct: false, explanation: "Tokens are removed from play when they leave the battle area, but they still fulfill effect cost conditions such as 'By placing a Digimon into security'." },
       { text: "Venusmon can target the token, the token will be placed into security and Venusmon will not be removed.", correct: false, explanation: "Tokens are removed from play when they leave the battle area,cthey cannot exist in any other area." },
+    ],
+  },
+  {
+    // Question 9
+    text: "A player has 9 cards in their trash and uses Death Slinger from their hand. What's the maximum level they can choose to delete?",
+    image: "images/question-image-9.png",
+    answers: [
+      { text: "Level 4", correct: true, explanation: "With 9 cards in the trash, the maximum level that can be chosen is 3. Used option cards doesn't enter the trash until after it fully resolves." },
+      { text: "Level 5", correct: false, explanation: "Used option cards doesn't enter the trash until after it fully resolves." },
+    ],
+  },
+  {
+    // Question 10
+    text: "A player uses Crimson Blaze and then digivolves into BT24 Medusamon the same turn. Will the 2 Petrification tokens be played?",
+    image: "images/question-image-10.png",
+    answers: [
+      { text: "Yes", correct: true, explanation: "Crimson Blaze prevents Digimon from being played by the opponent's effects. Since it's Medusamon's effect that plays the tokens, Crimson Blaze will not prevent it." },
+      { text: "No", correct: false, explanation: "Crimson Blaze prevents Digimon from being played by the opponent's effects. Since it's Medusamon's effect that plays the tokens, Crimson Blaze will not prevent it." },
+    ],
+  },
+    {
+    // Question 11
+    text: "A Player has BT21 Gammamon in play and 2 security cards remaining.Can they use Planet Punch and then Digivolve into EX12 Siriusmon using 'Arts Digivolve'?",
+    image: "images/question-image-11.png",
+    answers: [
+      { text: "No", correct: true, explanation: "Gammamon's effect states 'in the hand', and Planet Punch is no longer in the hand while it's being used." },
+      { text: "Yes", correct: true, explanation: "Gammamon's effect states 'in the hand', and Planet Punch is no longer in the hand while it's being used." },
     ],
   },
 //   {

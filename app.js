@@ -78,10 +78,16 @@ function loadQuestion(index) {
   }
 
   answersGrid.innerHTML = '';
-  shuffle(question.answers).forEach(answer => {
+  shuffle(question.answers).forEach((answer, i) => {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
-    btn.textContent = answer.text;
+
+    const badge = document.createElement('span');
+    badge.className = 'answer-badge';
+    badge.textContent = String.fromCharCode(65 + i); // A, B, C, D...
+    btn.appendChild(badge);
+    btn.appendChild(document.createTextNode(answer.text));
+
     btn.addEventListener('click', () => selectAnswer(btn, answer));
     answersGrid.appendChild(btn);
   });

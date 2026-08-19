@@ -142,11 +142,16 @@ body {
 }
 
 .copyright {
+  position: fixed;
+  bottom: 3vh;
+  margin: 0;
+  padding: 0 4vw;
+  text-align: center;
   font-size: 0.8em;
   font-style: italic;
   font-weight: 200;
   color: #444;
-  margin-bottom: 32px
+  max-width: 540px;
 }
 
 .primary-btn,
@@ -286,7 +291,26 @@ body {
   box-shadow: var(--card-shadow);
   cursor: pointer;
   color: #1a1a1a;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+
+.answer-badge {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--color-hover);
+  color: #707175;
 }
 
 .answer-btn:hover:not(:disabled):not(.correct):not(.incorrect) {
@@ -313,14 +337,73 @@ body {
     padding-top: 56px;
   }
 
+  .start-panel h1 {
+  font-size: var(--fs-title);
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.copyright {
+  font-size: 12px;
+}
+  
+  /* Quiz screen scrolls internally so full-size images and every answer
+     stay reachable; the title stays pinned via sticky positioning. */
+  #quiz-screen {
+    display: block;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .question-title {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 1.5vh 1vw;
+  }
+
+  .question-title h1 {
+  font-size: 1em;
+  font-weight: 500;
+  }
+
+  .image-box {
+  flex: none;
+  min-height: auto;
+  max-height: none;
+  height: auto;
+  overflow: visible;
+  margin-bottom: 2vh;
+  }
+
+  .image-box img {
+  max-height: none;
+  }
+
+  .feedback-overlay {
+  padding: 2vh 6vw;
+  }
+
   .answers-grid {
     grid-template-columns: 1fr;
+    gap: 1vh;
+  }
+
+  .answer-btn {
+    font-size: 0.9em;
+    font-weight: 400;
+    padding: 1.2vh 1.5vw;
   }
 
   .back-btn {
   position: fixed;
   top: 1vh;
-  padding: 1vh 1.5vw;
+  padding: 1vh 2.5vw 1vh 1.5vw;
 }
 
   /* Overlay expands to cover the answers too (sized/positioned by app.js) so
