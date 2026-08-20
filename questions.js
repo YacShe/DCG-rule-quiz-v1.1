@@ -134,7 +134,60 @@ const QUESTIONS = [
     image: "images/question-image-11.png",
     answers: [
       { text: "No", correct: true, explanation: "Gammamon's effect states 'in the hand', and Planet Punch is no longer in the hand while it's being used." },
-      { text: "Yes", correct: true, explanation: "Gammamon's effect states 'in the hand', and Planet Punch is no longer in the hand while it's being used." },
+      { text: "Yes", correct: false, explanation: "Gammamon's effect states 'in the hand', and Planet Punch is no longer in the hand while it's being used." },
+    ],
+  },
+  {
+    // Question 12
+    text: "Which statement is **not true** regarding \"stacked cards\"?",
+    image: "images/question-image-12.png",
+    answers: [
+      { text: "A Digimon with no digivolution cards is not considered a 'stack'.", correct: false, explanation: "A single card is not considered a stack." },
+      { text: "Link cards are considered as part of the Digimon's stack.", correct: true, explanation: "Link cards are not considered to be part of the stack." },
+      { text: "While Destromon's effect is active, it cannot be de-digivolved.", correct: false, explanation: "De-digivolving a Digimon is trashing its top stacked card, which is prevented by Destromon's effect." },
+      { text: "While Destromon's effect is active, it cannot be placed under another Digimon or Tamer.", correct: false, explanation: "Destromon's effect prevents its stacked cards from being trashed by effects, being moved under another card doesn't trash any card." },
+    ],
+  },
+    {
+    // Question 13
+    text: "Which statement is **true** regarding Link cards?",
+    image: "images/question-image-13.png",
+    answers: [
+      { text: "If Rebootmon digivolves into a non-Appmon card, both it's link cards will be trashed. God Grade Unleashed will not trigger.", correct: true, explanation: "When a link requirement is lost, all link cards with that requirement are trashed by the rules of the game." },
+      { text: "If Rebootmon is de-digivolved and loses Link +1, the player may choose which link card to trash. This will trigger God Grade Unleashed.", correct: false, explanation: "God Grade Unleashed will not trigger since game rules are trashing the link card, not any effect." },
+      { text: "If Rebootmon is deleted, its link cards will be trashed and God Grade Unleashed will trigger.", correct: false, explanation: "God Grade Unleashed will not trigger since game rules are trashing the link card, not any effect." },
+      { text: "If another card would be linked to Rebootmon, the bottom-most link card must be trashed.", correct: false, explanation: "If a link card must be trashed due to link limit, the player can choose which link card to trash." },
+    ],
+  },
+    {
+    // Question 14
+    text: "Vajramon is played, causing a Deva to be played into the breeding area. Will this cause Biting Crush to trigger?",
+    image: "images/question-image-14.png",
+    answers: [
+      { text: "No", correct: true, explanation: "Effects do not reference the breeding area unless specifically stated by the effect." },
+      { text: "Yes", correct: false, explanation: "Biting Crush does not trigger from cards being played into the breeding area." },
+    ],
+  },
+  {
+    // Question 15
+    text: "Leviamon is played while the opposing player controls only Machinedramon with 4 level 5 cards under it. Which is correct?",
+    image: "images/question-image-15.png",
+    answers: [
+      { text: "Machinedramon will be able to protect itself from both deletions by trashing a total of 4 cards.", correct: true, explanation: "Leviamon's effect has 2 separate instances of deletion, which individually trigger Machinedramon's protection effect." },
+      { text: "Machinedramon's All Turns effect can activate on the first instance of deletion, but not on the second.", correct: false, explanation: "Since there are 2 separate instances of deletion, Machinedramon's effect can trigger on each instance individually." },
+      { text: "Machinedramon's effect can only activate after Leviamon's effect fully resolves.", correct: false, explanation: "Machinedramon's effect is an immediate-type effect (also known as 'interruptive'), meaning it can activate in the middle of other effects. These effects have **would** in their trigger conditions." },
+      { text: "If 1 of the cards trashed by Machinedramon has a 'when this card is trashed' effect, it will activate before Leviamon's second deletion.", correct: false, explanation: "Only immediate-type effect (also known as 'interruptive'), can activate in the middle of other effects. These effects have **would** in their trigger conditions." },
+    ],
+  },
+  {
+    // Question 16
+    text: "Ignoring color/trait requirements, which combination of these digivolution cost reducing cards is **not legal** to use together?",
+    image: "images/question-image-16.png",
+    answers: [
+      { text: "Training + Thomas + Salamon", correct: false, explanation: "Training initiates the digivolution, and Thomas/Salamon interrupt to reduce the cost." },
+      { text: "Training + Sunflowmon", correct: true, explanation: "Both effects initiate a digivolution, so they can't be used together." },
+      { text: "Training + Thomas", correct: false, explanation: "Training initiates the digivolution, and Thomas interrupts to reduce the cost." },
+      { text: "Training + Salamon", correct: true, explanation: "Training initiates the digivolution, and Salamon interrupts to reduce the cost." },
     ],
   },
 //   {
